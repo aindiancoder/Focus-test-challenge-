@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+         focusChallenge   
+        </title>
+    </head>
+    <body>
+        <h1>focus challenge</h1>
+        <p id="obj">stop at 6 to win</p>
+        
+        <p id="timer"></p>
+        <div onclick="stopGame()" class="button" id="bt1">
+            <p id="p1">STOP</p>
+        </div>
+        <div onclick="startGame()" class="button" id="bt2">
+            <p id="p2">start</p>
+            </div> 
+            <div class="button" id="retry" onclick="retry()">
+            <p>retry</p>
+                
+            </div>
+ <p id="msg">this game is under devlopment ,may have bugs</p>            
+        
+<style>
+    .button {
+    width:80px;
+    height:23px;
+    background:red;
+    margin:0 auto;
+    text-align:center;
+}
+#timer {
+    text-align:center;
+    font-size:56px;
+}
+h1 {
+    text-align:center;
+        
+}
+#bt1:active{
+    background:gray;
+    
+}
+#bt2 {
+    background:green;
+}
+#bt2:active {
+    background:gray;
+    
+}
+#retry {
+   width:80px;
+   background:blue;
+   
+}
+#msg {
+    color:orange;
+}
+.bt {
+margin:0 auto;
+text-align:center;
+    
+}
+#obj {
+    text-align:center;
+    font-size:23px;
+}
+</style> 
+<script>
+    let timer = 00;
+let interval;
+function time() {
+     interval = setInterval(() => {
+    timer = timer +1;
+    document.getElementById("timer").innerText = timer;
+},300);
+}
+function stopTime() {
+
+    clearInterval(interval);
+}
+function startGame() {
+    console.log("hello budd")
+    time();
+    
+
+
+document.getElementById("bt2").style.display="none";
+}
+window.onload = function() {
+
+document.getElementById("timer").innerText=timer;  
+}
+
+function stopGame() {
+console.log("working dev");
+
+    if(timer === 6) {
+       stopTime();
+        document.body.style.background="cyan";
+       
+    } else {
+    alert("wrong time ");
+        console.log("working ")
+        stopTime();
+        document.body.style.background="brown";
+    }
+}
+
+function retry() {
+    console.log("hiii");
+    document.getElementById("bt2").style.display="block";
+   timer = 0; 
+   clearInterval(interval);
+   document.getElementById("timer").innerText = timer;
+   document.body.style.background="white";
+   
+}
+</script>      
+        
+    </body>
+</html>
